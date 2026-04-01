@@ -26,14 +26,14 @@ function ProjectCard({ title }: { title: string }) {
       className="glass-card flex-none flex flex-col"
       style={{
         width: "482px",
-        borderRadius: "15px",
+        borderRadius: "16px",
         padding: "10px",
         gap: "10px",
       }}
     >
       {/* Project image — replace with actual Next.js Image */}
       <div
-        className="rounded-[10px] bg-[rgba(255,255,255,0.05)] flex items-center justify-center text-white/20 text-sm"
+        className="rounded-[10px] bg-[rgba(29,99,220,0.08)] flex items-center justify-center text-white/20 text-sm"
         style={{ width: "462px", height: "236px", flexShrink: 0 }}
       >
         Project Screenshot
@@ -57,16 +57,16 @@ function ProjectGroup({
 }) {
   return (
     <div
-      className="glass-card"
+      className="glass-card-blue"
       style={{
         width: "1278px",
         minHeight: "470px",
-        borderRadius: "15px",
+        borderRadius: "20px",
         padding: "37px 16px 16px",
       }}
     >
       <h3
-        className="text-white font-bold mb-[15px] px-[5px]"
+        className="text-white font-bold mb-[15px] accent-bar"
         style={{ fontSize: "20px", lineHeight: "1.21em" }}
       >
         {title}
@@ -93,7 +93,7 @@ export default function Projects() {
       <div className="mx-auto w-full max-w-[1440px] px-[80px] py-[61px]">
         {/* Heading */}
         <h2
-          className="text-white font-bold mb-[95px]"
+          className="text-white font-bold mb-[95px] accent-bar"
           style={{ fontSize: "32px", lineHeight: "1.21em" }}
         >
           My Projects

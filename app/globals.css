@@ -4,11 +4,37 @@
   --color-background: #000000;
   --color-foreground: #ffffff;
   --font-sans: var(--font-inter);
+
+  /* Guardian blue accent palette */
+  --color-accent:      #1D63DC;
+  --color-accent-glow: rgba(29, 99, 220, 0.30);
+  --color-accent-dim:  rgba(29, 99, 220, 0.10);
 }
 
+/* Base glass card */
 @utility glass-card {
   background: rgba(39, 39, 39, 0.83);
   border: 1px solid rgba(217, 217, 217, 0.13);
+}
+
+/* Glass card with guardian blue tint */
+@utility glass-card-blue {
+  background: rgba(39, 39, 39, 0.83);
+  border: 1px solid rgba(29, 99, 220, 0.35);
+  box-shadow: 0 0 20px rgba(29, 99, 220, 0.10) inset;
+}
+
+/* Blue left-border accent used on section headings */
+@utility accent-bar {
+  border-left: 3px solid #1D63DC;
+  padding-left: 12px;
+}
+
+/* Guardian blue gradient button */
+@utility btn-blue {
+  background: linear-gradient(135deg, #1D63DC 0%, #38bdf8 100%);
+  border: none;
+  color: #ffffff;
 }
 
 body {

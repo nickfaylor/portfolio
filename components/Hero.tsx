@@ -65,7 +65,7 @@ export default function Hero() {
           top: "170px",
           width: "593px",
           height: "593px",
-          background: "linear-gradient(180deg, rgba(66,66,66,1) 3%, rgba(85,85,85,1) 100%)",
+          background: "linear-gradient(180deg, rgba(20,50,120,0.85) 3%, rgba(29,99,220,0.55) 100%)",
           filter: "blur(45px)",
           opacity: 0.6,
         }}
@@ -80,6 +80,7 @@ export default function Hero() {
             top: "191px",
             width: "551px",
             height: "552px",
+            boxShadow: "0 0 80px rgba(29, 99, 220, 0.35)",
           }}
         >
           {/* Replace with your actual profile photo */}
@@ -91,7 +92,7 @@ export default function Hero() {
         {/* Text content */}
         <div className="absolute" style={{ top: "273px", left: "90px", width: "617px" }}>
           <h1
-            className="text-white font-bold uppercase leading-tight"
+            className="text-white font-bold uppercase leading-tight accent-bar"
             style={{ fontSize: "48px", lineHeight: "1.21em" }}
           >
             Your Name Here
@@ -110,18 +111,17 @@ export default function Hero() {
         {/* Hire Me button */}
         <a
           href="#contact"
-          className="absolute glass-card flex items-center justify-center"
+          className="absolute btn-blue flex items-center justify-center hover:opacity-85 transition-opacity"
           style={{
             top: "521px",
             left: "82px",
             width: "168px",
             height: "47px",
-            borderRadius: "5px",
+            borderRadius: "8px",
             fontSize: "16px",
             fontWeight: 500,
             letterSpacing: "0.1em",
             lineHeight: "2em",
-            color: "#ffffff",
             textDecoration: "none",
           }}
         >
@@ -138,7 +138,7 @@ export default function Hero() {
               key={link.label}
               href={link.href}
               aria-label={link.label}
-              className="text-white hover:text-white/70 transition-colors"
+              className="text-white hover:text-[#38bdf8] transition-colors"
               target="_blank"
               rel="noopener noreferrer"
             >

@@ -1,14 +1,18 @@
-// Footer — inferred from design pattern (rate-limited before fetching)
-// Matches the dark/glass aesthetic of the rest of the site
+// Footer — gradient top border using guardian blue accent
 
 export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer
-      className="w-full bg-black border-t"
-      style={{ borderColor: "rgba(217, 217, 217, 0.13)" }}
-    >
+    <footer className="w-full bg-black relative">
+      {/* Guardian blue gradient top border */}
+      <div
+        className="absolute top-0 left-0 right-0"
+        style={{
+          height: "1px",
+          background: "linear-gradient(90deg, transparent, #1D63DC, #38bdf8, #1D63DC, transparent)",
+        }}
+      />
       <div className="mx-auto w-full max-w-[1440px] px-[90px] py-6 flex items-center justify-between">
         <span
           className="text-white/60"

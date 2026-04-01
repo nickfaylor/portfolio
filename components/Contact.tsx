@@ -74,37 +74,42 @@ export default function Contact() {
       <div className="mx-auto w-full max-w-[1440px] px-[81px] py-[46px]">
         {/* Heading */}
         <h2
-          className="text-white font-bold mb-[78px]"
+          className="text-white font-bold mb-[78px] accent-bar"
           style={{ fontSize: "32px", lineHeight: "1.21em" }}
         >
           Contact Me
         </h2>
 
-        {/* Contact cards row */}
-        <div className="flex flex-wrap gap-4">
+        {/* Contact cards — 2-column grid for symmetry */}
+        <div className="grid grid-cols-2 gap-5" style={{ maxWidth: "1278px" }}>
           {contactItems.map((item) => (
             <a
               key={item.label}
               href={item.href}
               target={item.href.startsWith("mailto") ? undefined : "_blank"}
               rel="noopener noreferrer"
-              className="glass-card flex items-center hover:opacity-80 transition-opacity"
+              className="glass-card-blue flex items-center hover:opacity-90 transition-opacity"
               style={{
-                gap: "32px",
-                padding: "10px 15px",
-                borderRadius: "5px",
+                gap: "20px",
+                padding: "16px 20px",
+                borderRadius: "12px",
                 textDecoration: "none",
               }}
             >
-              <span className="text-white" style={{ width: "57px", height: "57px", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <span className="text-[#38bdf8]" style={{ width: "36px", height: "36px", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
                 {item.icon}
               </span>
-              <span
-                className="text-white font-medium"
-                style={{ fontSize: "32px", lineHeight: "1.21em" }}
-              >
-                {item.value}
-              </span>
+              <div className="flex flex-col gap-0.5">
+                <span className="text-white/50 font-medium" style={{ fontSize: "11px", lineHeight: "1.4em", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+                  {item.label}
+                </span>
+                <span
+                  className="text-white font-medium"
+                  style={{ fontSize: "18px", lineHeight: "1.4em" }}
+                >
+                  {item.value}
+                </span>
+              </div>
             </a>
           ))}
         </div>

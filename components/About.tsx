@@ -44,7 +44,7 @@ export default function About() {
       <div className="mx-auto w-full max-w-[1440px] px-[90px] py-[58px]">
         {/* Heading */}
         <h2
-          className="text-white font-bold mb-[66px]"
+          className="text-white font-bold mb-[66px] accent-bar"
           style={{ fontSize: "32px", lineHeight: "1.21em" }}
         >
           About Me
@@ -74,8 +74,8 @@ export default function About() {
           {infoCards.map((card) => (
             <div
               key={card.title}
-              className="glass-card"
-              style={{ borderRadius: "0px", padding: "20px 17px" }}
+              className="glass-card-blue"
+              style={{ borderRadius: "16px", padding: "20px 17px" }}
             >
               <h3
                 className="text-white font-bold mb-3"
@@ -99,7 +99,7 @@ export default function About() {
 
         {/* Skills & Technologies label */}
         <h3
-          className="text-white font-bold mb-6"
+          className="text-white font-bold mb-6 accent-bar"
           style={{ fontSize: "20px", lineHeight: "1.21em" }}
         >
           Skills &amp; Technologies
@@ -110,11 +110,11 @@ export default function About() {
           {skills.map((skill) => (
             <div
               key={skill.name}
-              className="glass-card flex flex-col items-center justify-between"
+              className="glass-card flex flex-col items-center justify-between hover:border-[#1D63DC] transition-colors"
               style={{
                 width: "98px",
                 height: "144px",
-                borderRadius: "5px",
+                borderRadius: "10px",
                 padding: "10px 5px",
               }}
             >

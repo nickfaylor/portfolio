@@ -26,10 +26,8 @@ export default function Navbar() {
         <a
           href="/resume.pdf"
           download
-          className="text-white font-medium transition-opacity hover:opacity-70"
+          className="btn-blue font-medium transition-opacity hover:opacity-85"
           style={{
-            background: "rgba(20, 20, 20, 0.9)",
-            border: "1px solid rgba(217, 217, 217, 0.15)",
             borderRadius: "50px",
             padding: "10px 28px",
             fontSize: "15px",
@@ -46,7 +44,7 @@ export default function Navbar() {
             <a
               key={link.label}
               href={link.href}
-              className="text-white hover:text-white/60 transition-colors"
+              className="text-white hover:text-[#38bdf8] transition-colors"
               style={{ fontSize: "16px", lineHeight: "1.5em", textDecoration: "none" }}
             >
               {link.label}
