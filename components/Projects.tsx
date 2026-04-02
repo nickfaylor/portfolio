@@ -1,107 +1,131 @@
 // Figma: Projects Section — 1440×1322px, black bg
 // "My Projects" heading at x:80 y:61 (Inter 700, 32px)
-// Two groups: Development Projects (y:156) and Design Projects (y:742)
-// Each group: glass-card container 1278×470, borderRadius 15px
-// Inside: section title (Inter 700, 20px) + horizontally scrollable card row
 // Project cards: 482px wide, column layout, gap 10px, padding 10px, borderRadius 15px
 //   — image 462×236, title (Inter 400, 16px, centered)
 
-const developmentProjects = [
-  { title: "Movie Web App", image: null },
-  { title: "Weather Web App", image: null },
-  { title: "BDH Website", image: null },
-  { title: "BDH Website", image: null },
+const projects = [
+  {
+    title: "Termometer",
+    description:
+      "A word association game where players guess a hidden word using semantic similarity scores powered by embeddings.",
+    href: "https://termometer.app",
+    tags: ["Next.js", "OpenAI", "LangChain", "Neon"],
+  },
+  {
+    title: "FlashNote",
+    description:
+      "AI-powered flashcard generator that processes uploaded PDF/PPTX files, using embeddings and vector search for topic-based flashcard retrieval.",
+    href: "https://github.com/nickfaylor",
+    tags: ["Next.js", "OpenAI", "LangChain", "Pinecone", "Firebase", "Clerk"],
+  },
 ];
 
-const designProjects = [
-  { title: "Mortuary Database Web App", image: null },
-  { title: "SAB Website", image: null },
-  { title: "Movie Web App", image: null },
-  { title: "Product Subscription Web Page", image: null },
-];
-
-function ProjectCard({ title }: { title: string }) {
+function ProjectCard({
+  title,
+  description,
+  href,
+  tags,
+}: {
+  title: string;
+  description: string;
+  href: string;
+  tags: string[];
+}) {
   return (
-    <div
-      className="glass-card flex-none flex flex-col"
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="glass-card flex-none flex flex-col hover:border-[#1D63DC] transition-colors"
       style={{
         width: "482px",
         borderRadius: "16px",
         padding: "10px",
         gap: "10px",
+        textDecoration: "none",
       }}
     >
-      {/* Project image — replace with actual Next.js Image */}
+      {/* Project image placeholder */}
       <div
         className="rounded-[10px] bg-[rgba(29,99,220,0.08)] flex items-center justify-center text-white/20 text-sm"
         style={{ width: "462px", height: "236px", flexShrink: 0 }}
       >
         Project Screenshot
       </div>
-      <p
-        className="text-white text-center"
-        style={{ fontSize: "16px", lineHeight: "1.21em", width: "462px" }}
-      >
-        {title}
-      </p>
-    </div>
-  );
-}
-
-function ProjectGroup({
-  title,
-  projects,
-}: {
-  title: string;
-  projects: { title: string; image: null }[];
-}) {
-  return (
-    <div
-      className="glass-card-blue"
-      style={{
-        width: "1278px",
-        minHeight: "470px",
-        borderRadius: "20px",
-        padding: "37px 16px 16px",
-      }}
-    >
-      <h3
-        className="text-white font-bold mb-[15px] accent-bar"
-        style={{ fontSize: "20px", lineHeight: "1.21em" }}
-      >
-        {title}
-      </h3>
-      {/* Horizontally scrollable row of project cards */}
-      <div
-        className="flex gap-[24px] overflow-x-auto"
-        style={{
-          scrollbarWidth: "thin",
-          scrollbarColor: "rgba(217,217,217,0.2) transparent",
-        }}
-      >
-        {projects.map((project, i) => (
-          <ProjectCard key={i} title={project.title} />
-        ))}
+      <div className="px-1 flex flex-col gap-2">
+        <p
+          className="text-white font-bold"
+          style={{ fontSize: "16px", lineHeight: "1.21em" }}
+        >
+          {title}
+        </p>
+        <p
+          className="text-white/60"
+          style={{ fontSize: "13px", lineHeight: "1.5em" }}
+        >
+          {description}
+        </p>
+        <div className="flex flex-wrap gap-1.5 mt-1">
+          {tags.map((tag) => (
+            <span
+              key={tag}
+              className="text-[#38bdf8]"
+              style={{
+                fontSize: "11px",
+                lineHeight: "1.4em",
+                background: "rgba(56,189,248,0.08)",
+                border: "1px solid rgba(56,189,248,0.25)",
+                borderRadius: "4px",
+                padding: "2px 7px",
+              }}
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
       </div>
-    </div>
+    </a>
   );
 }
 
 export default function Projects() {
   return (
-    <section id="projects" className="w-full bg-black" style={{ minHeight: "1322px" }}>
+    <section id="projects" className="w-full bg-black" style={{ minHeight: "700px" }}>
       <div className="mx-auto w-full max-w-[1440px] px-[80px] py-[61px]">
         {/* Heading */}
         <h2
-          className="text-white font-bold mb-[95px] accent-bar"
+          className="text-white font-bold mb-[60px] accent-bar"
           style={{ fontSize: "32px", lineHeight: "1.21em" }}
         >
           My Projects
         </h2>
 
-        <div className="flex flex-col gap-[80px]">
-          <ProjectGroup title="Development Projects" projects={developmentProjects} />
-          <ProjectGroup title="Design Projects" projects={designProjects} />
+        <div
+          className="glass-card-blue"
+          style={{
+            width: "1278px",
+            minHeight: "420px",
+            borderRadius: "20px",
+            padding: "37px 16px 16px",
+          }}
+        >
+          <h3
+            className="text-white font-bold mb-[15px] accent-bar"
+            style={{ fontSize: "20px", lineHeight: "1.21em" }}
+          >
+            Development Projects
+          </h3>
+          <div
+            className="flex gap-[24px] overflow-x-auto"
+            style={{
+              scrollbarWidth: "thin",
+              scrollbarColor: "rgba(217,217,217,0.2) transparent",
+            }}
+          >
+            {projects.map((project) => (
+              <ProjectCard key={project.title} {...project} />
+            ))}
+          </div>
         </div>
       </div>
     </section>

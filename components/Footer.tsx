@@ -18,7 +18,7 @@ export default function Footer() {
           className="text-white/60"
           style={{ fontSize: "14px", lineHeight: "1.5em" }}
         >
-          © {year} Your Name. All rights reserved.
+          © {year} Nicholas Faylor. All rights reserved.
         </span>
         <span
           className="text-white/40"
