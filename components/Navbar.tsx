@@ -14,7 +14,7 @@ export default function Navbar() {
   return (
     <nav className="absolute top-6 left-0 right-0 z-50 px-5">
       <div
-        className="glass-card flex items-center justify-between"
+        className="glass-card-blue flex items-center justify-between"
         style={{
           borderRadius: "50px",
           padding: "12px 24px",
@@ -44,7 +44,7 @@ export default function Navbar() {
             <a
               key={link.label}
               href={link.href}
-              className="text-white hover:text-[#38bdf8] transition-colors"
+              className="text-white hover:text-accent-secondary transition-colors"
               style={{ fontSize: "16px", lineHeight: "1.5em", textDecoration: "none" }}
             >
               {link.label}

@@ -69,7 +69,7 @@ export default function Hero() {
           <div
             className="absolute inset-0 pointer-events-none"
             style={{
-              background: "linear-gradient(160deg, rgba(29,99,220,0.30) 0%, rgba(56,189,248,0.10) 50%, rgba(0,0,0,0.30) 100%)",
+              background: "linear-gradient(160deg, rgba(29,99,220,0.30) 0%, rgba(var(--color-accent-secondary-rgb), 0.10) 50%, rgba(0,0,0,0.30) 100%)",
               mixBlendMode: "multiply",
             }}
           />
@@ -89,7 +89,7 @@ export default function Hero() {
               fontSize: "22px",
               lineHeight: "1.4em",
               width: "615px",
-              background: "linear-gradient(135deg, #38bdf8 0%, #1D63DC 100%)",
+              background: "linear-gradient(135deg, var(--color-accent-secondary) 0%, var(--color-accent) 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
@@ -116,7 +116,7 @@ export default function Hero() {
             textDecoration: "none",
           }}
         >
-          Hire Me
+          Contact Me
         </a>
 
         {/* Social icons */}
@@ -129,7 +129,7 @@ export default function Hero() {
               key={link.label}
               href={link.href}
               aria-label={link.label}
-              className="text-white hover:text-[#38bdf8] transition-colors"
+              className="text-white hover:text-accent-secondary transition-colors"
               target="_blank"
               rel="noopener noreferrer"
             >

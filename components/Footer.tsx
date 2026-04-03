@@ -10,7 +10,7 @@ export default function Footer() {
         className="absolute top-0 left-0 right-0"
         style={{
           height: "1px",
-          background: "linear-gradient(90deg, transparent, #1D63DC, #38bdf8, #1D63DC, transparent)",
+          background: "linear-gradient(90deg, transparent, var(--color-accent), var(--color-accent-secondary), var(--color-accent), transparent)",
         }}
       />
       <div className="mx-auto w-full max-w-[1440px] px-[90px] py-6 flex items-center justify-between">

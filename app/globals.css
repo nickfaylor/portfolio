@@ -7,22 +7,23 @@
   --font-heading: var(--font-space-grotesk);
 
   /* Guardian blue accent palette */
-  --color-accent:      #1D63DC;
-  --color-accent-glow: rgba(29, 99, 220, 0.30);
-  --color-accent-dim:  rgba(29, 99, 220, 0.10);
+  --color-accent:           #1D63DC;
+  --color-accent-secondary: #38bdf8;
+  --color-accent-glow:      rgba(29, 99, 220, 0.30);
+  --color-accent-dim:       rgba(29, 99, 220, 0.10);
 }
 
 /* Base glass card */
 @utility glass-card {
-  background: rgba(39, 39, 39, 0.83);
-  border: 1px solid rgba(217, 217, 217, 0.13);
+  background: linear-gradient(160deg, rgba(30, 30, 30, 0.95) 0%, rgba(15, 15, 15, 0.98) 100%);
+  border: 1px solid rgba(217, 217, 217, 0.10);
 }
 
 /* Glass card with guardian blue tint */
 @utility glass-card-blue {
-  background: rgba(39, 39, 39, 0.83);
-  border: 1px solid rgba(29, 99, 220, 0.35);
-  box-shadow: 0 0 20px rgba(29, 99, 220, 0.10) inset;
+  background: linear-gradient(160deg, rgba(22, 28, 40, 0.97) 0%, rgba(10, 14, 22, 0.99) 100%);
+  border: 1px solid rgba(29, 99, 220, 0.30);
+  box-shadow: 0 0 24px rgba(29, 99, 220, 0.08) inset;
 }
 
 /* Blue left-border accent used on section headings */
@@ -33,7 +34,7 @@
 
 /* Guardian blue gradient button */
 @utility btn-blue {
-  background: linear-gradient(135deg, #1D63DC 0%, #38bdf8 100%);
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-secondary) 100%);
   border: none;
   color: #ffffff;
 }

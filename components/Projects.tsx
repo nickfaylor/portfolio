@@ -69,12 +69,12 @@ function ProjectCard({
           {tags.map((tag) => (
             <span
               key={tag}
-              className="text-[#38bdf8]"
+              className="text-accent-secondary"
               style={{
                 fontSize: "11px",
                 lineHeight: "1.4em",
-                background: "rgba(56,189,248,0.08)",
-                border: "1px solid rgba(56,189,248,0.25)",
+                background: "rgba(var(--color-accent-secondary-rgb), 0.08)",
+                border: "1px solid rgba(var(--color-accent-secondary-rgb), 0.25)",
                 borderRadius: "4px",
                 padding: "2px 7px",
               }}
@@ -91,7 +91,7 @@ function ProjectCard({
 export default function Projects() {
   return (
     <section id="projects" className="w-full bg-black" style={{ minHeight: "700px" }}>
-      <div className="mx-auto w-full max-w-[1440px] px-[80px] py-[61px]">
+      <div className="mx-auto w-full max-w-[1440px] px-[90px] py-[61px]">
         {/* Heading */}
         <h2
           className="text-white font-bold mb-[60px] accent-bar"

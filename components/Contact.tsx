@@ -41,10 +41,10 @@ const contactItems = [
 export default function Contact() {
   return (
     <section id="contact" className="w-full bg-black" style={{ minHeight: "297px" }}>
-      <div className="mx-auto w-full max-w-[1440px] px-[81px] py-[46px]">
+      <div className="mx-auto w-full max-w-[1440px] px-[90px] py-[46px]">
         {/* Heading */}
         <h2
-          className="text-white font-bold mb-[78px] accent-bar"
+          className="text-white font-bold mb-[60px] accent-bar"
           style={{ fontSize: "32px", lineHeight: "1.21em" }}
         >
           Contact Me
@@ -66,7 +66,7 @@ export default function Contact() {
                 textDecoration: "none",
               }}
             >
-              <span className="text-[#38bdf8]" style={{ width: "36px", height: "36px", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <span className="text-accent-secondary" style={{ width: "36px", height: "36px", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
                 {item.icon}
               </span>
               <div className="flex flex-col gap-0.5">
