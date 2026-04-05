@@ -6,6 +6,7 @@
 "use client";
 
 import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -65,21 +66,29 @@ export default function Navbar() {
       </div>
 
       {/* Mobile dropdown menu */}
-      {menuOpen && (
-        <div className="md:hidden mt-2 glass-card-blue rounded-2xl px-5 py-4 flex flex-col gap-4 max-w-[1440px] mx-auto">
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              onClick={() => setMenuOpen(false)}
-              className="text-white hover:text-accent-secondary transition-colors text-[16px]"
-              style={{ textDecoration: "none" }}
-            >
-              {link.label}
-            </a>
-          ))}
-        </div>
-      )}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            className="md:hidden mt-2 glass-card-blue rounded-2xl px-5 py-4 flex flex-col gap-4 max-w-[1440px] mx-auto"
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+          >
+            {navLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                onClick={() => setMenuOpen(false)}
+                className="text-white hover:text-accent-secondary transition-colors text-[16px]"
+                style={{ textDecoration: "none" }}
+              >
+                {link.label}
+              </a>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }

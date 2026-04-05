@@ -1,4 +1,5 @@
 // Figma: Contact Me Section — 1440×297px, black bg
+import AnimateIn, { AnimateInItem } from "@/components/AnimateIn";
 // "Contact Me" heading at x:81 y:46 (Inter 700, 32px)
 // Contact cards in a row starting at y:124, each with icon (57×57) + text
 // Card layout: row, alignItems center, gap 32px, padding 10px 15px, borderRadius 5px
@@ -43,41 +44,44 @@ export default function Contact() {
     <section id="contact" className="w-full bg-black" style={{ minHeight: "297px" }}>
       <div className="mx-auto w-full max-w-[1440px] px-5 md:px-[90px] py-[46px]">
         {/* Heading */}
-        <h2
-          className="text-white font-bold mb-[60px] accent-bar text-[26px] md:text-[32px]"
-          style={{ lineHeight: "1.21em" }}
-        >
-          Contact Me
-        </h2>
+        <AnimateIn variant="fadeUp">
+          <h2
+            className="text-white font-bold mb-[60px] accent-bar text-[26px] md:text-[32px]"
+            style={{ lineHeight: "1.21em" }}
+          >
+            Contact Me
+          </h2>
+        </AnimateIn>
 
         {/* Contact cards — 2-column grid for symmetry */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5" style={{ maxWidth: "1278px" }}>
+        <AnimateIn stagger={0.12} className="grid grid-cols-1 md:grid-cols-2 gap-5" viewportMargin="-40px">
           {contactItems.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              target={item.href.startsWith("mailto") ? undefined : "_blank"}
-              rel="noopener noreferrer"
-              className="glass-card-blue flex items-center gap-4 md:gap-5 px-4 py-3 md:px-5 md:py-4 rounded-[12px] hover:opacity-90 transition-opacity no-underline"
-              style={{ textDecoration: "none" }}
-            >
-              <span className="text-accent-secondary flex-shrink-0 flex items-center justify-center w-8 h-8 md:w-9 md:h-9">
-                {item.icon}
-              </span>
-              <div className="flex flex-col gap-0.5 min-w-0">
-                <span className="text-white/50 font-medium" style={{ fontSize: "11px", lineHeight: "1.4em", textTransform: "uppercase", letterSpacing: "0.08em" }}>
-                  {item.label}
+            <AnimateInItem key={item.label}>
+              <a
+                href={item.href}
+                target={item.href.startsWith("mailto") ? undefined : "_blank"}
+                rel="noopener noreferrer"
+                className="glass-card-blue flex items-center gap-4 md:gap-5 px-4 py-3 md:px-5 md:py-4 rounded-[12px] hover:opacity-90 transition-opacity no-underline"
+                style={{ textDecoration: "none" }}
+              >
+                <span className="text-accent-secondary flex-shrink-0 flex items-center justify-center w-8 h-8 md:w-9 md:h-9">
+                  {item.icon}
                 </span>
-                <span
-                  className="text-white font-medium text-[14px] md:text-[18px] break-all"
-                  style={{ lineHeight: "1.4em" }}
-                >
-                  {item.value}
-                </span>
-              </div>
-            </a>
+                <div className="flex flex-col gap-0.5 min-w-0">
+                  <span className="text-white/50 font-medium" style={{ fontSize: "11px", lineHeight: "1.4em", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+                    {item.label}
+                  </span>
+                  <span
+                    className="text-white font-medium text-[14px] md:text-[18px] break-all"
+                    style={{ lineHeight: "1.4em" }}
+                  >
+                    {item.value}
+                  </span>
+                </div>
+              </a>
+            </AnimateInItem>
           ))}
-        </div>
+        </AnimateIn>
       </div>
     </section>
   );

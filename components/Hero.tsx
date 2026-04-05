@@ -3,6 +3,12 @@
 // Name text at x:90 y:273, bio at y:366, "Hire Me" button at y:521, social icons at y:661
 // Profile circle (551×552) on right side at x:788, with blurred gray ellipse behind it
 
+"use client";
+
+import Image from "next/image";
+import Navbar from "@/components/Navbar";
+import { motion } from "framer-motion";
+
 const socialLinks = [
   {
     label: "GitHub",
@@ -24,17 +30,34 @@ const socialLinks = [
   },
 ];
 
-import Image from "next/image";
-import Navbar from "@/components/Navbar";
+// Stagger container — children animate in sequence
+const containerVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.14 } },
+};
+
+// Individual child variant
+const itemVariants = {
+  hidden: { opacity: 0, y: 28 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const photoVariants = {
+  hidden: { opacity: 0, scale: 0.97 },
+  visible: { opacity: 1, scale: 1 },
+};
 
 export default function Hero() {
   return (
     <section id="home" className="relative w-full bg-black overflow-hidden min-h-[600px] md:min-h-[814px]">
       <Navbar />
 
-      {/* Decorative blurred ellipse — desktop only */}
-      <div
+      {/* Decorative blurred ellipse — desktop only, ambient glow-in */}
+      <motion.div
         className="hidden md:block absolute rounded-full pointer-events-none"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.6 }}
+        transition={{ duration: 0.9, ease: "easeOut" }}
         style={{
           right: "calc(50% - 767px + (1440px - 100%) / 2)",
           top: "170px",
@@ -42,16 +65,22 @@ export default function Hero() {
           height: "593px",
           background: "linear-gradient(180deg, rgba(20,50,120,0.85) 3%, rgba(29,99,220,0.55) 100%)",
           filter: "blur(45px)",
-          opacity: 0.6,
         }}
       />
 
       {/* Inner container — flex column on mobile, block (absolute children) on desktop */}
-      <div className="relative mx-auto w-full max-w-[1440px] px-6 md:px-[90px] flex flex-col items-center pt-28 pb-12 gap-8 md:block md:pt-0 md:pb-0 md:gap-0 md:min-h-[814px]">
+      <motion.div
+        className="relative mx-auto w-full max-w-[1440px] px-6 md:px-[90px] flex flex-col items-center pt-28 pb-12 gap-8 md:block md:pt-0 md:pb-0 md:gap-0 md:min-h-[814px]"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
 
         {/* Profile photo */}
-        <div
+        <motion.div
           className="order-first rounded-full w-[220px] h-[220px] md:absolute md:w-[551px] md:h-[552px]"
+          variants={photoVariants}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           style={{
             right: "90px",
             top: "191px",
@@ -78,20 +107,22 @@ export default function Hero() {
               }}
             />
           </div>
-        </div>
+        </motion.div>
 
         {/* Text content */}
         <div
           className="order-2 w-full text-center md:absolute md:w-[617px] md:text-left"
           style={{ top: "273px", left: "90px" }}
         >
-          <h1
+          <motion.h1
             className="text-white font-bold uppercase leading-tight accent-bar text-[36px] md:text-[64px]"
             style={{ lineHeight: "1.21em" }}
+            variants={itemVariants}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           >
             Nicholas Faylor
-          </h1>
-          <p
+          </motion.h1>
+          <motion.p
             className="mt-[24px] font-semibold text-[18px] md:text-[22px]"
             style={{
               lineHeight: "1.4em",
@@ -100,13 +131,15 @@ export default function Hero() {
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
             }}
+            variants={itemVariants}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           >
             Engineer. <br />Builder. <br />Creative.
-          </p>
+          </motion.p>
         </div>
 
         {/* Contact Me button */}
-        <a
+        <motion.a
           href="#contact"
           className="order-3 btn-blue flex items-center justify-center hover:opacity-85 transition-opacity md:absolute w-[168px] h-[47px] rounded-[8px] text-[16px] font-medium tracking-[0.1em]"
           style={{
@@ -115,14 +148,18 @@ export default function Hero() {
             lineHeight: "2em",
             textDecoration: "none",
           }}
+          variants={itemVariants}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
         >
           Contact Me
-        </a>
+        </motion.a>
 
         {/* Social icons */}
-        <div
+        <motion.div
           className="order-4 flex items-center gap-8 md:gap-[91px] md:absolute"
           style={{ bottom: "131px", left: "90px" }}
+          variants={itemVariants}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
         >
           {socialLinks.map((link) => (
             <a
@@ -136,8 +173,8 @@ export default function Hero() {
               {link.icon}
             </a>
           ))}
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

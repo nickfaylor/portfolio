@@ -6,6 +6,7 @@ import { GiGuitar } from "react-icons/gi";
 import { FaCode } from "react-icons/fa6";
 import { BiDumbbell } from "react-icons/bi";
 import { MdSchool } from "react-icons/md";
+import AnimateIn, { AnimateInItem } from "@/components/AnimateIn";
 
 
 const infoCards = [
@@ -54,7 +55,7 @@ const personalCards = [
   {
     title: "Creative Development",
     icon: FaCode,
-    body: <>I&apos;m drawn to the intersection of <strong className="text-accent-secondary">technical craft</strong> and unique problem-solving through creative development. Learning software engineering has allowed me to bring life to unique ideas that I have, constantly pushing me to build the <strong className="text-accent-secondary">best products</strong> I can.</>,
+    body: <>I&apos;m drawn to the intersection of <strong className="text-accent-secondary">technical craft</strong> and unique problem-solving through creative development. Software engineering has allowed me to bring life to unique ideas that I have, constantly pushing me to build the <strong className="text-accent-secondary">best products</strong> I can.</>,
   },
   {
     title: "Fitness",
@@ -68,17 +69,19 @@ export default function About() {
     <section id="about" className="w-full bg-black">
       <div className="mx-auto w-full max-w-[1440px] px-5 md:px-[90px] py-[60px]">
         {/* Heading */}
-        <h2
-          className="text-white font-bold mb-[60px] accent-bar text-[26px] md:text-[32px]"
-          style={{ lineHeight: "1.21em" }}
-        >
-          About Me
-        </h2>
+        <AnimateIn variant="fadeUp">
+          <h2
+            className="text-white font-bold mb-[60px] accent-bar text-[26px] md:text-[32px]"
+            style={{ lineHeight: "1.21em" }}
+          >
+            About Me
+          </h2>
+        </AnimateIn>
 
         {/* Two-column row */}
         <div className="flex flex-col md:flex-row gap-8 md:gap-[60px] mb-[60px]">
           {/* Left: My Work */}
-          <div className="flex-1 flex flex-col">
+          <AnimateIn variant="slideLeft" className="flex-1 flex flex-col">
             <h3
               className="text-white font-bold mb-[24px] accent-bar text-[18px] md:text-[20px]"
               style={{ lineHeight: "1.21em" }}
@@ -143,85 +146,89 @@ export default function About() {
                 </div>
               </div>
             </div>
-          </div>
+          </AnimateIn>
 
           {/* Right: My Personal */}
-          <div className="flex-1 flex flex-col">
+          <AnimateIn variant="slideRight" delay={0.1} className="flex-1 flex flex-col">
             <h3
               className="text-white font-bold mb-[24px] accent-bar text-[18px] md:text-[20px]"
               style={{ lineHeight: "1.21em" }}
             >
               My Personal
             </h3>
-            <div className="flex flex-col gap-5">
+            <AnimateIn stagger={0.12} className="flex flex-col gap-5">
               {personalCards.map((card) => (
-                <div
-                  key={card.title}
-                  className="glass-card-blue"
-                  style={{ borderRadius: "12px", padding: "18px 20px" }}
-                >
-                  <h4
-                    className="text-accent-secondary font-bold mb-3 flex items-center gap-1.5"
-                    style={{ fontSize: "13px", lineHeight: "1.4em", textTransform: "uppercase", letterSpacing: "0.08em" }}
+                <AnimateInItem key={card.title}>
+                  <div
+                    className="glass-card-blue"
+                    style={{ borderRadius: "12px", padding: "18px 20px" }}
                   >
-                    <card.icon size={15} />
-                    {card.title}
-                  </h4>
-                  <p
-                    className="text-white"
-                    style={{ fontSize: "14px", lineHeight: "1.6em" }}
-                  >
-                    {card.body}
-                  </p>
-                </div>
+                    <h4
+                      className="text-accent-secondary font-bold mb-3 flex items-center gap-1.5"
+                      style={{ fontSize: "13px", lineHeight: "1.4em", textTransform: "uppercase", letterSpacing: "0.08em" }}
+                    >
+                      <card.icon size={15} />
+                      {card.title}
+                    </h4>
+                    <p
+                      className="text-white"
+                      style={{ fontSize: "14px", lineHeight: "1.6em" }}
+                    >
+                      {card.body}
+                    </p>
+                  </div>
+                </AnimateInItem>
               ))}
-            </div>
-          </div>
+            </AnimateIn>
+          </AnimateIn>
         </div>
 
         {/* Skills & Technologies label */}
-        <h3
-          className="text-white font-bold mb-6 accent-bar text-[18px] md:text-[20px]"
-          style={{ lineHeight: "1.21em" }}
-        >
-          Skills &amp; Technologies
-        </h3>
+        <AnimateIn variant="fadeUp">
+          <h3
+            className="text-white font-bold mb-6 accent-bar text-[18px] md:text-[20px]"
+            style={{ lineHeight: "1.21em" }}
+          >
+            Skills &amp; Technologies
+          </h3>
+        </AnimateIn>
 
         {/* Skills grouped by category — 2×2 grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5" style={{ maxWidth: "1248px" }}>
+        <AnimateIn stagger={0.1} className="grid grid-cols-1 md:grid-cols-2 gap-5" viewportMargin="-60px">
           {skillGroups.map((group) => (
-            <div
-              key={group.category}
-              className="glass-card-blue"
-              style={{ borderRadius: "12px", padding: "18px 20px" }}
-            >
-              <h4
-                className="text-accent-secondary font-bold mb-3"
-                style={{ fontSize: "13px", lineHeight: "1.4em", textTransform: "uppercase", letterSpacing: "0.08em" }}
+            <AnimateInItem key={group.category}>
+              <div
+                className="glass-card-blue"
+                style={{ borderRadius: "12px", padding: "18px 20px" }}
               >
-                {group.category}
-              </h4>
-              <div className="flex flex-wrap gap-2">
-                {group.skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className="text-white font-medium"
-                    style={{
-                      fontSize: "14px",
-                      lineHeight: "1.4em",
-                      background: "rgba(29,99,220,0.15)",
-                      border: "1px solid rgba(29,99,220,0.35)",
-                      borderRadius: "6px",
-                      padding: "4px 10px",
-                    }}
-                  >
-                    {skill}
-                  </span>
-                ))}
+                <h4
+                  className="text-accent-secondary font-bold mb-3"
+                  style={{ fontSize: "13px", lineHeight: "1.4em", textTransform: "uppercase", letterSpacing: "0.08em" }}
+                >
+                  {group.category}
+                </h4>
+                <div className="flex flex-wrap gap-2">
+                  {group.skills.map((skill) => (
+                    <span
+                      key={skill}
+                      className="text-white font-medium"
+                      style={{
+                        fontSize: "14px",
+                        lineHeight: "1.4em",
+                        background: "rgba(29,99,220,0.15)",
+                        border: "1px solid rgba(29,99,220,0.35)",
+                        borderRadius: "6px",
+                        padding: "4px 10px",
+                      }}
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
+            </AnimateInItem>
           ))}
-        </div>
+        </AnimateIn>
       </div>
     </section>
   );

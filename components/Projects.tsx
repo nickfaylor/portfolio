@@ -3,6 +3,8 @@
 // Project cards: 482px wide, column layout, gap 10px, padding 10px, borderRadius 15px
 //   — image 462×236, title (Inter 400, 16px, centered)
 
+import AnimateIn, { AnimateInItem } from "@/components/AnimateIn";
+
 const projects = [
   {
     title: "Termometer",
@@ -10,7 +12,7 @@ const projects = [
       "A word association game where players guess a hidden word using semantic similarity scores powered by embeddings.",
     href: "https://termometer.app",
     image: "/images/termometer.png",
-    tags: ["Next.js", "OpenAI", "LangChain", "Neon"],
+    tags: ["Next.js", "OpenAI", "Neon", "Clerk", "RevenueCat"],
   },
   {
     title: "FlashNote",
@@ -97,35 +99,37 @@ export default function Projects() {
     <section id="projects" className="w-full bg-black" style={{ minHeight: "700px" }}>
       <div className="mx-auto w-full max-w-[1440px] px-5 md:px-[90px] py-[61px]">
         {/* Heading */}
-        <h2
-          className="text-white font-bold mb-[60px] accent-bar text-[26px] md:text-[32px]"
-          style={{ lineHeight: "1.21em" }}
-        >
-          My Projects
-        </h2>
-
-        <div
-          className="glass-card-blue w-full md:max-w-[1278px] rounded-[20px] pt-[37px] px-4 pb-4"
-          style={{ minHeight: "420px" }}
-        >
-          <h3
-            className="text-white font-bold mb-[15px] accent-bar text-[18px] md:text-[20px]"
+        <AnimateIn variant="fadeUp">
+          <h2
+            className="text-white font-bold mb-[60px] accent-bar text-[26px] md:text-[32px]"
             style={{ lineHeight: "1.21em" }}
           >
-            Development Projects
-          </h3>
+            My Projects
+          </h2>
+        </AnimateIn>
+
+        <AnimateIn variant="fadeUp" delay={0.1}>
           <div
-            className="flex gap-[24px] overflow-x-auto"
-            style={{
-              scrollbarWidth: "thin",
-              scrollbarColor: "rgba(217,217,217,0.2) transparent",
-            }}
+            className="glass-card-blue w-full md:max-w-[1278px] rounded-[20px] pt-[37px] px-4 pb-4"
+            style={{ minHeight: "420px" }}
           >
-            {projects.map((project) => (
-              <ProjectCard key={project.title} {...project} />
-            ))}
+            <AnimateIn variant="fadeUp" delay={0.05}>
+              <h3
+                className="text-white font-bold mb-[15px] accent-bar text-[18px] md:text-[20px]"
+                style={{ lineHeight: "1.21em" }}
+              >
+                Development Projects
+              </h3>
+            </AnimateIn>
+            <AnimateIn stagger={0.15} className="flex gap-[24px] overflow-x-auto" viewportMargin="-60px">
+              {projects.map((project) => (
+                <AnimateInItem key={project.title} variant="scaleIn">
+                  <ProjectCard {...project} />
+                </AnimateInItem>
+              ))}
+            </AnimateIn>
           </div>
-        </div>
+        </AnimateIn>
       </div>
     </section>
   );
