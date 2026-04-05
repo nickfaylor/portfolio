@@ -9,6 +9,7 @@ const projects = [
     description:
       "A word association game where players guess a hidden word using semantic similarity scores powered by embeddings.",
     href: "https://termometer.app",
+    image: "/images/termometer.png",
     tags: ["Next.js", "OpenAI", "LangChain", "Neon"],
   },
   {
@@ -16,23 +17,34 @@ const projects = [
     description:
       "AI-powered flashcard generator that processes uploaded PDF/PPTX files, using embeddings and vector search for topic-based flashcard retrieval.",
     href: "https://github.com/nickfaylor",
+    image: "/images/flashnote.png",
     tags: ["Next.js", "OpenAI", "LangChain", "Pinecone", "Firebase", "Clerk"],
   },
+  {
+    title: "Twitter Bot Detector",
+    description:
+      "A tool that identifies Twitter accounts' human legitimacy using trained ML algorithms on a dataset of labeled accounts.",
+    href: "https://github.com/aross2010/twitter-bot-detector",
+    image: "/images/twitterbot.png",
+    tags: ["Next.js", "Flask", "TypeScript", "Random Forest Classifier", "Twikit"],
+  }
 ];
 
 function ProjectCard({
   title,
   description,
   href,
+  image,
   tags,
 }: {
   title: string;
   description: string;
   href: string;
+  image: string;
   tags: string[];
 }) {
   return (
-    <a
+    <a // Conditionally render href only if it exists to avoid empty links
       href={href}
       target="_blank"
       rel="noopener noreferrer"
@@ -45,13 +57,12 @@ function ProjectCard({
         textDecoration: "none",
       }}
     >
-      {/* Project image placeholder */}
-      <div
-        className="rounded-[10px] bg-[rgba(29,99,220,0.08)] flex items-center justify-center text-white/20 text-sm"
+      <img
+        src={image}
+        alt={`${title} screenshot`}
+        className="rounded-[10px] object-cover"
         style={{ width: "462px", height: "236px", flexShrink: 0 }}
-      >
-        Project Screenshot
-      </div>
+      />
       <div className="px-1 flex flex-col gap-2">
         <p
           className="text-white font-bold"
@@ -73,8 +84,8 @@ function ProjectCard({
               style={{
                 fontSize: "11px",
                 lineHeight: "1.4em",
-                background: "rgba(var(--color-accent-secondary-rgb), 0.08)",
-                border: "1px solid rgba(var(--color-accent-secondary-rgb), 0.25)",
+                background: "rgba(56, 189, 248, 0.08)",
+                border: "1px solid rgba(56, 189, 248, 0.25)",
                 borderRadius: "4px",
                 padding: "2px 7px",
               }}

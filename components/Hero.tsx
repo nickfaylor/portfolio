@@ -79,7 +79,7 @@ export default function Hero() {
         <div className="absolute" style={{ top: "273px", left: "90px", width: "617px" }}>
           <h1
             className="text-white font-bold uppercase leading-tight accent-bar"
-            style={{ fontSize: "62px", lineHeight: "1.21em" }}
+            style={{ fontSize: "64px", lineHeight: "1.21em" }}
           >
             Nicholas Faylor
           </h1>

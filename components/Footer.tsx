@@ -24,7 +24,7 @@ export default function Footer() {
           className="text-white/40"
           style={{ fontSize: "12px", lineHeight: "1.5em" }}
         >
-          Built with Next.js &amp; Tailwind CSS
+
         </span>
       </div>
     </footer>

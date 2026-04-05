@@ -131,8 +131,8 @@ export default function About() {
                       style={{
                         fontSize: "11px",
                         lineHeight: "1.4em",
-                        background: "rgba(var(--color-accent-secondary-rgb), 0.08)",
-                        border: "1px solid rgba(var(--color-accent-secondary-rgb), 0.25)",
+                        background: "rgba(56, 189, 248, 0.08)",
+                        border: "1px solid rgba(56, 189, 248, 0.25)",
                         borderRadius: "4px",
                         padding: "2px 7px",
                       }}

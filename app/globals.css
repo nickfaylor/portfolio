@@ -3,8 +3,8 @@
 @theme inline {
   --color-background: #000000;
   --color-foreground: #ffffff;
-  --font-sans: var(--font-inter);
-  --font-heading: var(--font-space-grotesk);
+  --font-sans: var(--font-minion);
+  --font-heading: var(--font-optima);
 
   /* Guardian blue accent palette */
   --color-accent:           #1D63DC;
@@ -46,5 +46,5 @@ body {
 }
 
 h1, h2, h3, h4 {
-  font-family: var(--font-space-grotesk), "Space Grotesk", sans-serif;
+  font-family: var(--font-heading), "Optima", serif;
 }
