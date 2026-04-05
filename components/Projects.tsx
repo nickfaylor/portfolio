@@ -16,7 +16,7 @@ const projects = [
     title: "FlashNote",
     description:
       "AI-powered flashcard generator that processes uploaded PDF/PPTX files, using embeddings and vector search for topic-based flashcard retrieval.",
-    href: "https://github.com/nickfaylor",
+    href: "",
     image: "/images/flashnote.png",
     tags: ["Next.js", "OpenAI", "LangChain", "Pinecone", "Firebase", "Clerk"],
   },
@@ -45,7 +45,7 @@ function ProjectCard({
 }) {
   return (
     <a // Conditionally render href only if it exists to avoid empty links
-      href={href}
+      href={href || undefined}
       target="_blank"
       rel="noopener noreferrer"
       className="glass-card flex-none flex flex-col hover:border-[#1D63DC] transition-colors"

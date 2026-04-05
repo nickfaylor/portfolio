@@ -59,7 +59,7 @@ const personalCards = [
   {
     title: "Fitness",
     icon: BiDumbbell,
-    body: <><strong className="text-accent-secondary">Weight training</strong> and fitness have been a huge part of my daily life for many years. It is one of my biggest hobbies and passions.</>,
+    body: <>I enjoy <strong className="text-accent-secondary">weight training</strong> and have integrated fitness into my daily routine for many years. It is one of my biggest hobbies and passions.</>,
   },
 ];
 
