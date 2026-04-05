@@ -29,11 +29,12 @@ import Navbar from "@/components/Navbar";
 
 export default function Hero() {
   return (
-    <section id="home" className="relative w-full bg-black overflow-hidden" style={{ minHeight: "814px" }}>
+    <section id="home" className="relative w-full bg-black overflow-hidden min-h-[600px] md:min-h-[814px]">
       <Navbar />
-      {/* Decorative blurred ellipse behind profile photo */}
+
+      {/* Decorative blurred ellipse — desktop only */}
       <div
-        className="absolute rounded-full pointer-events-none"
+        className="hidden md:block absolute rounded-full pointer-events-none"
         style={{
           right: "calc(50% - 767px + (1440px - 100%) / 2)",
           top: "170px",
@@ -45,50 +46,55 @@ export default function Hero() {
         }}
       />
 
-      <div className="relative mx-auto w-full max-w-[1440px] px-[90px]" style={{ minHeight: "814px" }}>
-        {/* Profile photo — right side */}
+      {/* Inner container — flex column on mobile, block (absolute children) on desktop */}
+      <div className="relative mx-auto w-full max-w-[1440px] px-6 md:px-[90px] flex flex-col items-center pt-28 pb-12 gap-8 md:block md:pt-0 md:pb-0 md:gap-0 md:min-h-[814px]">
+
+        {/* Profile photo */}
         <div
-          className="absolute rounded-full overflow-hidden"
+          className="order-first rounded-full w-[220px] h-[220px] md:absolute md:w-[551px] md:h-[552px]"
           style={{
             right: "90px",
             top: "191px",
-            width: "551px",
-            height: "552px",
             boxShadow: "0 0 80px rgba(29, 99, 220, 0.35)",
           }}
         >
-          <Image
-            src="/portfolioHS.jpg"
-            alt="Nicholas Faylor"
-            fill
-            className="object-cover"
-            style={{ objectPosition: "center 40%", filter: "grayscale(100%)" }}
-            priority
-          />
-          {/* Blue gradient overlay — tints photo to match site palette */}
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              background: "linear-gradient(160deg, rgba(29,99,220,0.30) 0%, rgba(var(--color-accent-secondary-rgb), 0.10) 50%, rgba(0,0,0,0.30) 100%)",
-              mixBlendMode: "multiply",
-            }}
-          />
+          {/* Inner wrapper provides `relative` for the fill Image without activating the outer div's top/right on mobile */}
+          <div className="relative w-full h-full rounded-full overflow-hidden">
+            <Image
+              src="/portfolioHS.jpg"
+              alt="Nicholas Faylor"
+              fill
+              sizes="(max-width: 768px) 220px, 551px"
+              className="object-cover"
+              style={{ objectPosition: "center 40%", filter: "grayscale(100%)" }}
+              priority
+            />
+            {/* Blue gradient overlay */}
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background: "linear-gradient(160deg, rgba(29,99,220,0.30) 0%, rgba(var(--color-accent-secondary-rgb), 0.10) 50%, rgba(0,0,0,0.30) 100%)",
+                mixBlendMode: "multiply",
+              }}
+            />
+          </div>
         </div>
 
         {/* Text content */}
-        <div className="absolute" style={{ top: "273px", left: "90px", width: "617px" }}>
+        <div
+          className="order-2 w-full text-center md:absolute md:w-[617px] md:text-left"
+          style={{ top: "273px", left: "90px" }}
+        >
           <h1
-            className="text-white font-bold uppercase leading-tight accent-bar"
-            style={{ fontSize: "64px", lineHeight: "1.21em" }}
+            className="text-white font-bold uppercase leading-tight accent-bar text-[36px] md:text-[64px]"
+            style={{ lineHeight: "1.21em" }}
           >
             Nicholas Faylor
           </h1>
           <p
-            className="mt-[24px] font-semibold"
+            className="mt-[24px] font-semibold text-[18px] md:text-[22px]"
             style={{
-              fontSize: "22px",
               lineHeight: "1.4em",
-              width: "615px",
               background: "linear-gradient(135deg, var(--color-accent-secondary) 0%, var(--color-accent) 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
@@ -99,19 +105,13 @@ export default function Hero() {
           </p>
         </div>
 
-        {/* Hire Me button */}
+        {/* Contact Me button */}
         <a
           href="#contact"
-          className="absolute btn-blue flex items-center justify-center hover:opacity-85 transition-opacity"
+          className="order-3 btn-blue flex items-center justify-center hover:opacity-85 transition-opacity md:absolute w-[168px] h-[47px] rounded-[8px] text-[16px] font-medium tracking-[0.1em]"
           style={{
             top: "521px",
             left: "82px",
-            width: "168px",
-            height: "47px",
-            borderRadius: "8px",
-            fontSize: "16px",
-            fontWeight: 500,
-            letterSpacing: "0.1em",
             lineHeight: "2em",
             textDecoration: "none",
           }}
@@ -121,7 +121,7 @@ export default function Hero() {
 
         {/* Social icons */}
         <div
-          className="absolute flex items-center gap-[91px]"
+          className="order-4 flex items-center gap-8 md:gap-[91px] md:absolute"
           style={{ bottom: "131px", left: "90px" }}
         >
           {socialLinks.map((link) => (

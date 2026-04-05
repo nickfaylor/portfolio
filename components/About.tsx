@@ -66,22 +66,22 @@ const personalCards = [
 export default function About() {
   return (
     <section id="about" className="w-full bg-black">
-      <div className="mx-auto w-full max-w-[1440px] px-[90px] py-[60px]">
+      <div className="mx-auto w-full max-w-[1440px] px-5 md:px-[90px] py-[60px]">
         {/* Heading */}
         <h2
-          className="text-white font-bold mb-[60px] accent-bar"
-          style={{ fontSize: "32px", lineHeight: "1.21em" }}
+          className="text-white font-bold mb-[60px] accent-bar text-[26px] md:text-[32px]"
+          style={{ lineHeight: "1.21em" }}
         >
           About Me
         </h2>
 
         {/* Two-column row */}
-        <div className="flex gap-[60px] mb-[60px]">
+        <div className="flex flex-col md:flex-row gap-8 md:gap-[60px] mb-[60px]">
           {/* Left: My Work */}
           <div className="flex-1 flex flex-col">
             <h3
-              className="text-white font-bold mb-[24px] accent-bar"
-              style={{ fontSize: "20px", lineHeight: "1.21em" }}
+              className="text-white font-bold mb-[24px] accent-bar text-[18px] md:text-[20px]"
+              style={{ lineHeight: "1.21em" }}
             >
               My Work
             </h3>
@@ -148,8 +148,8 @@ export default function About() {
           {/* Right: My Personal */}
           <div className="flex-1 flex flex-col">
             <h3
-              className="text-white font-bold mb-[24px] accent-bar"
-              style={{ fontSize: "20px", lineHeight: "1.21em" }}
+              className="text-white font-bold mb-[24px] accent-bar text-[18px] md:text-[20px]"
+              style={{ lineHeight: "1.21em" }}
             >
               My Personal
             </h3>
@@ -181,14 +181,14 @@ export default function About() {
 
         {/* Skills & Technologies label */}
         <h3
-          className="text-white font-bold mb-6 accent-bar"
-          style={{ fontSize: "20px", lineHeight: "1.21em" }}
+          className="text-white font-bold mb-6 accent-bar text-[18px] md:text-[20px]"
+          style={{ lineHeight: "1.21em" }}
         >
           Skills &amp; Technologies
         </h3>
 
         {/* Skills grouped by category — 2×2 grid */}
-        <div className="grid grid-cols-2 gap-5" style={{ maxWidth: "1248px" }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5" style={{ maxWidth: "1248px" }}>
           {skillGroups.map((group) => (
             <div
               key={group.category}

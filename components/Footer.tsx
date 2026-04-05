@@ -13,10 +13,10 @@ export default function Footer() {
           background: "linear-gradient(90deg, transparent, var(--color-accent), var(--color-accent-secondary), var(--color-accent), transparent)",
         }}
       />
-      <div className="mx-auto w-full max-w-[1440px] px-[90px] py-6 flex items-center justify-between">
+      <div className="mx-auto w-full max-w-[1440px] px-5 md:px-[90px] py-6 flex flex-col items-center gap-2 md:flex-row md:justify-between">
         <span
-          className="text-white/60"
-          style={{ fontSize: "14px", lineHeight: "1.5em" }}
+          className="text-white/60 text-center md:text-left text-[13px] md:text-[14px]"
+          style={{ lineHeight: "1.5em" }}
         >
           © {year} Nicholas Faylor. All rights reserved.
         </span>

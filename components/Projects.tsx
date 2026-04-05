@@ -48,20 +48,13 @@ function ProjectCard({
       href={href || undefined}
       target="_blank"
       rel="noopener noreferrer"
-      className="glass-card flex-none flex flex-col hover:border-[#1D63DC] transition-colors"
-      style={{
-        width: "482px",
-        borderRadius: "16px",
-        padding: "10px",
-        gap: "10px",
-        textDecoration: "none",
-      }}
+      className="glass-card flex-none flex flex-col hover:border-[#1D63DC] transition-colors w-[85vw] md:w-[482px] rounded-[16px] p-[10px] gap-[10px]"
+      style={{ textDecoration: "none" }}
     >
       <img
         src={image}
         alt={`${title} screenshot`}
-        className="rounded-[10px] object-cover"
-        style={{ width: "462px", height: "236px", flexShrink: 0 }}
+        className="rounded-[10px] object-cover w-full h-[180px] md:w-[462px] md:h-[236px] flex-shrink-0"
       />
       <div className="px-1 flex flex-col gap-2">
         <p
@@ -102,27 +95,22 @@ function ProjectCard({
 export default function Projects() {
   return (
     <section id="projects" className="w-full bg-black" style={{ minHeight: "700px" }}>
-      <div className="mx-auto w-full max-w-[1440px] px-[90px] py-[61px]">
+      <div className="mx-auto w-full max-w-[1440px] px-5 md:px-[90px] py-[61px]">
         {/* Heading */}
         <h2
-          className="text-white font-bold mb-[60px] accent-bar"
-          style={{ fontSize: "32px", lineHeight: "1.21em" }}
+          className="text-white font-bold mb-[60px] accent-bar text-[26px] md:text-[32px]"
+          style={{ lineHeight: "1.21em" }}
         >
           My Projects
         </h2>
 
         <div
-          className="glass-card-blue"
-          style={{
-            width: "1278px",
-            minHeight: "420px",
-            borderRadius: "20px",
-            padding: "37px 16px 16px",
-          }}
+          className="glass-card-blue w-full md:max-w-[1278px] rounded-[20px] pt-[37px] px-4 pb-4"
+          style={{ minHeight: "420px" }}
         >
           <h3
-            className="text-white font-bold mb-[15px] accent-bar"
-            style={{ fontSize: "20px", lineHeight: "1.21em" }}
+            className="text-white font-bold mb-[15px] accent-bar text-[18px] md:text-[20px]"
+            style={{ lineHeight: "1.21em" }}
           >
             Development Projects
           </h3>
