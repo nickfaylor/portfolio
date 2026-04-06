@@ -3,7 +3,7 @@
 @theme inline {
   --color-background: #000000;
   --color-foreground: #ffffff;
-  --font-sans: var(--font-minion);
+  --font-sans: var(--font-optima);
   --font-heading: var(--font-optima);
 
   /* Guardian blue accent palette */
@@ -42,7 +42,7 @@
 body {
   background: #000000;
   color: #ffffff;
-  font-family: var(--font-inter), Inter, sans-serif;
+  font-family: var(--font-sans), sans-serif;
 }
 
 @media (prefers-reduced-motion: reduce) {
