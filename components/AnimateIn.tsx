@@ -1,11 +1,12 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import type { Variants } from "framer-motion";
 import type { ReactNode } from "react";
 
 type Variant = "fadeUp" | "fadeIn" | "slideLeft" | "slideRight" | "scaleIn";
 
-const variantMap: Record<Variant, { hidden: object; visible: object }> = {
+const variantMap: Record<Variant, Variants> = {
   fadeUp:    { hidden: { opacity: 0, y: 40 },       visible: { opacity: 1, y: 0 } },
   fadeIn:    { hidden: { opacity: 0 },               visible: { opacity: 1 } },
   slideLeft: { hidden: { opacity: 0, x: -20 },       visible: { opacity: 1, x: 0 } },
@@ -13,7 +14,7 @@ const variantMap: Record<Variant, { hidden: object; visible: object }> = {
   scaleIn:   { hidden: { opacity: 0, scale: 0.97 },  visible: { opacity: 1, scale: 1 } },
 };
 
-const reducedVariant = {
+const reducedVariant: Variants = {
   hidden: { opacity: 0 },
   visible: { opacity: 1 },
 };
