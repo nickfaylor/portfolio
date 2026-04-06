@@ -34,7 +34,7 @@ const skillGroups = [
   },
   {
     category: "Frameworks & Libraries",
-    skills: ["Next.js", "React", "SpringBoot", "LangChain"],
+    skills: ["Next.js", "React", "SpringBoot", "LangChain", "Clerk", "Pinecone"],
   },
   {
     category: "AI & ML",
@@ -42,7 +42,7 @@ const skillGroups = [
   },
   {
     category: "Cloud & Tools",
-    skills: ["AWS (Bedrock, Athena, S3)", "PostgreSQL", "Docker", "REST APIs", "Git", "Claude Code"],
+    skills: ["AWS (Bedrock, Athena, S3)", "PostgreSQL", "Docker", "REST APIs", "Git", "Claude Code", "Vercel", "Neon"],
   },
 ];
 
@@ -50,7 +50,7 @@ const personalCards = [
   {
     title: "Music & Guitar",
     icon: GiGuitar,
-    body: <>Guitar-playing is my main creative outlet, as I have <strong className="text-accent-secondary">9+ years</strong> of experience playing and writing music. I&apos;m a <strong className="text-accent-secondary">blues guitar</strong> player first, but I also enjoy mixing in elements of <strong className="text-accent-secondary">jazz, rock, fusion, and country</strong>.</>,
+    body: <>Guitar-playing is my main creative outlet, as I have <strong className="text-accent-secondary">9+ years</strong> of experience playing and writing music. I&apos;m a <strong className="text-accent-secondary">blues guitar</strong> player first, but I also enjoy mixing in elements of <strong className="text-accent-secondary">jazz, rock, pop, and country</strong>.</>,
   },
   {
     title: "Creative Development",

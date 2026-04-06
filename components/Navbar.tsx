@@ -25,7 +25,7 @@ export default function Navbar() {
       >
         {/* Download Resume button */}
         <a
-          href="/resume.pdf"
+          href="/NFresume.pdf"
           download
           className="btn-blue font-medium transition-opacity hover:opacity-85 rounded-[50px] px-5 py-2 text-[14px] md:text-[15px]"
           style={{ lineHeight: "1.4em", textDecoration: "none" }}

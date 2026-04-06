@@ -49,12 +49,12 @@ const photoVariants = {
 
 export default function Hero() {
   return (
-    <section id="home" className="relative w-full bg-black overflow-hidden min-h-[600px] md:min-h-[814px]">
+    <section id="home" className="relative w-full bg-black overflow-hidden min-h-[600px] lg:min-h-[814px]">
       <Navbar />
 
       {/* Decorative blurred ellipse — desktop only, ambient glow-in */}
       <motion.div
-        className="hidden md:block absolute rounded-full pointer-events-none"
+        className="hidden lg:block absolute rounded-full pointer-events-none"
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.6 }}
         transition={{ duration: 0.9, ease: "easeOut" }}
@@ -70,7 +70,7 @@ export default function Hero() {
 
       {/* Inner container — flex column on mobile, block (absolute children) on desktop */}
       <motion.div
-        className="relative mx-auto w-full max-w-[1440px] px-6 md:px-[90px] flex flex-col items-center pt-28 pb-12 gap-8 md:block md:pt-0 md:pb-0 md:gap-0 md:min-h-[814px]"
+        className="relative mx-auto w-full max-w-[1440px] px-6 lg:px-[90px] flex flex-col items-center pt-28 pb-12 gap-8 lg:block lg:pt-0 lg:pb-0 lg:gap-0 lg:min-h-[814px]"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -78,7 +78,7 @@ export default function Hero() {
 
         {/* Profile photo */}
         <motion.div
-          className="order-first rounded-full w-[220px] h-[220px] md:absolute md:w-[551px] md:h-[552px]"
+          className="order-first rounded-full w-[220px] h-[220px] lg:absolute lg:w-[551px] lg:h-[552px]"
           variants={photoVariants}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           style={{
@@ -93,7 +93,7 @@ export default function Hero() {
               src="/portfolioHS.jpg"
               alt="Nicholas Faylor"
               fill
-              sizes="(max-width: 768px) 220px, 551px"
+              sizes="(max-width: 1024px) 220px, 551px"
               className="object-cover"
               style={{ objectPosition: "center 40%", filter: "grayscale(100%)" }}
               priority
@@ -111,11 +111,11 @@ export default function Hero() {
 
         {/* Text content */}
         <div
-          className="order-2 w-full text-center md:absolute md:w-[617px] md:text-left"
+          className="order-2 w-full text-center lg:absolute lg:w-[617px] lg:text-left"
           style={{ top: "273px", left: "90px" }}
         >
           <motion.h1
-            className="text-white font-bold uppercase leading-tight accent-bar text-[36px] md:text-[64px]"
+            className="text-white font-bold uppercase leading-tight accent-bar text-[36px] lg:text-[64px]"
             style={{ lineHeight: "1.21em" }}
             variants={itemVariants}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
@@ -123,7 +123,7 @@ export default function Hero() {
             Nicholas Faylor
           </motion.h1>
           <motion.p
-            className="mt-[24px] font-semibold text-[18px] md:text-[22px]"
+            className="mt-[24px] font-semibold text-[18px] lg:text-[22px]"
             style={{
               lineHeight: "1.4em",
               background: "linear-gradient(135deg, var(--color-accent-secondary) 0%, var(--color-accent) 100%)",
@@ -141,7 +141,7 @@ export default function Hero() {
         {/* Contact Me button */}
         <motion.a
           href="#contact"
-          className="order-3 btn-blue flex items-center justify-center hover:opacity-85 transition-opacity md:absolute w-[168px] h-[47px] rounded-[8px] text-[16px] font-medium tracking-[0.1em]"
+          className="order-3 btn-blue flex items-center justify-center hover:opacity-85 transition-opacity lg:absolute w-[168px] h-[47px] rounded-[8px] text-[16px] font-medium tracking-[0.1em]"
           style={{
             top: "521px",
             left: "82px",
@@ -156,7 +156,7 @@ export default function Hero() {
 
         {/* Social icons */}
         <motion.div
-          className="order-4 flex items-center gap-8 md:gap-[91px] md:absolute"
+          className="order-4 flex items-center gap-8 lg:gap-[91px] lg:absolute"
           style={{ bottom: "131px", left: "90px" }}
           variants={itemVariants}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
